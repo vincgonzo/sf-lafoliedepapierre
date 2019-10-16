@@ -1,0 +1,11 @@
+lfdpp_admin:
+    resource: "@LFDPPAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
+lfdpp_platform:
+    resource: "@LFDPPPlatformBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
