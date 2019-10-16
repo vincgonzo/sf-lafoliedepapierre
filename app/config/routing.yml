@@ -5,3 +5,7 @@ admin:
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+
+hello_the_world:
+    path:       /hello-world
+    controller: LFDPP\AdminBundle\Controller\FrontController::index
