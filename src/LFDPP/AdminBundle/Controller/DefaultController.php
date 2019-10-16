@@ -8,6 +8,6 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('LFDPPAdminBundle:Default:index.html.twig');
+        return $this->render('@Admin/Default/index.html.twig');
     }
 }

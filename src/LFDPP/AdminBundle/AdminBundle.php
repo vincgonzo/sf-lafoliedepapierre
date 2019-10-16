@@ -4,6 +4,6 @@ namespace LFDPP\AdminBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class LFDPPAdminBundle extends Bundle
+class AdminBundle extends Bundle
 {
 }

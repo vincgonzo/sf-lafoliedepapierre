@@ -1,3 +1,3 @@
-lfdpp_admin_homepage:
+admin_homepage:
     path:     /
-    defaults: { _controller: LFDPPAdminBundle:Default:index }
+    defaults: { _controller: AdminBundle:Default:index }
