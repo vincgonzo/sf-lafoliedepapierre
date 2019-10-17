@@ -3,6 +3,11 @@
 
 
 {% block content %}
+ {# On affiche tous les messages flash dont le nom est « info » #}
+      {% for message in app.flashes('notice') %}
+        <p>Message flash : {{ message }}</p>
+      {% endfor %}
+
 <h1>Hello World !</h1>
 <p>
 Le Hello World est un grand classique en programmation.
@@ -10,4 +15,7 @@ Il signifie énormément, car cela veut dire que vous avez
 réussi à exécuter le programme pour accomplir une tâche simple :
 afficher ce hello world !
 </p>
+<a href="{{ path('hello_world') }}">
+    Lien test vers ici !!
+</a>
 {% endblock %}
