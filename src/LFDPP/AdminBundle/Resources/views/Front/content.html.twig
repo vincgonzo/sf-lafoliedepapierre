@@ -2,6 +2,8 @@
 {% extends "@Admin/Default/index.html.twig" %}
 
 
+{% block title %}{{ parent() }} - Hello world page{% endblock %}
+
 {% block content %}
  {# On affiche tous les messages flash dont le nom est « info » #}
       {% for message in app.flashes('notice') %}
