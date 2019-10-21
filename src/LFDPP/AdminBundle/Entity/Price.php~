@@ -5,12 +5,12 @@ namespace LFDPP\AdminBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * PriceType
+ * Price
  *
- * @ORM\Table(name="lilou_price_type")
- * @ORM\Entity(repositoryClass="LFDPP\AdminBundle\Repository\PriceTypeRepository")
+ * @ORM\Table(name="price")
+ * @ORM\Entity(repositoryClass="LFDPP\AdminBundle\Repository\PriceRepository")
  */
-class PriceType
+class Price
 {
     /**
      * @var int
@@ -22,18 +22,20 @@ class PriceType
     private $id;
 
     /**
-     * @var string
+     * @var \stdClass
      *
-     * @ORM\Column(name="type", type="string", length=50, unique=true)
+     * @ORM\ManyToOne(targetEntity="LFDPP\AdminBundle\Entity\PriceType", cascade={"persist"})
+     * @ORM\Column(name="type_id", type="integer")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $type;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="days", type="integer")
+     * @ORM\Column(name="value", type="integer")
      */
-    private $days;
+    private $value;
 
 
     /**
@@ -49,9 +51,9 @@ class PriceType
     /**
      * Set type
      *
-     * @param string $type
+     * @param \stdClass $type
      *
-     * @return PriceType
+     * @return Price
      */
     public function setType($type)
     {
@@ -63,7 +65,7 @@ class PriceType
     /**
      * Get type
      *
-     * @return string
+     * @return \stdClass
      */
     public function getType()
     {
@@ -71,27 +73,26 @@ class PriceType
     }
 
     /**
-     * Set days
+     * Set value
      *
-     * @param integer $days
+     * @param integer $value
      *
-     * @return PriceType
+     * @return Price
      */
-    public function setDays($days)
+    public function setValue($value)
     {
-        $this->days = $days;
+        $this->value = $value;
 
         return $this;
     }
 
     /**
-     * Get days
+     * Get value
      *
      * @return int
      */
-    public function getDays()
+    public function getValue()
     {
-        return $this->days;
+        return $this->value;
     }
 }
-
