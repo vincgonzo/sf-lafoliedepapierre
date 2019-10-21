@@ -5,7 +5,13 @@
 
 <ul>
   {% for price_type in prices_type %}
-    <li>{{ price_type.type }} correspond a {{ price_type.days }} jours</li>
+    <li>
+    <div>
+    {{ price_type.type }} correspond a {{ price_type.days }} jours - 
+    <a href="{{ path('admin_form_price_type_edit', {'id': price_type.id}) }}">Edit this type</a>
+    <a href="{{ path('admin_form_price_type_delete', {'id': price_type.id}) }}">Delete this type</a>
+    </div>
+    </li>
   {% else %}
     <li>Pas d'utilisateur trouvé.</li>
   {% endfor %}
