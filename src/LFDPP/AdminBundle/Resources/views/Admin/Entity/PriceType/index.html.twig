@@ -1,0 +1,18 @@
+{# src/LFDPP/AdminBundle/Resources/views/Admin/Entity/PriceType/index.html.twig #}
+{% extends "@Admin/Default/index.html.twig" %}
+
+{% block content %}
+
+<ul>
+  {% for price_type in prices_type %}
+    <li>{{ price_type.type }} correspond a {{ price_type.days }} jours</li>
+  {% else %}
+    <li>Pas d'utilisateur trouvé.</li>
+  {% endfor %}
+</ul>
+
+<div>
+  <a href="{{ path('admin_form_price_type_add') }}">Add new Price Type</a>
+</div>
+
+  {% endblock %}

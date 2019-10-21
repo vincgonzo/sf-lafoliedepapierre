@@ -11,5 +11,11 @@
         {% block content %}{% endblock %}
         {% block javascripts %}{% endblock %}
         {% block footer %}{% endblock %}
+
+        {# On affiche tous les messages flash dont le nom est « info » #}
+        {% for message in app.flashes('notice') %}
+            <p>Message flash : {{ message }}</p>
+        {% endfor %}
+
     </body>
 </html>
