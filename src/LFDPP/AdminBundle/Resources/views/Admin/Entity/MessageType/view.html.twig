@@ -1,0 +1,16 @@
+{# src/LFDPP/AdminBundle/Resources/views/Admin/Entity/PriceType/view.html.twig #}
+{% extends "@Admin/Default/index.html.twig" %}
+
+{% block content %}
+
+<h1>
+  {% if message_type %}
+     message type name : {{ message_type.name }}
+  {% else %}
+    Pas de price Type trouvé.
+  {% endif %}
+</h1>
+
+<a href="{{ path('admin_form_message_type') }}">Revenir à l'écran des Message Type</a>
+
+{% endblock %}
