@@ -3,11 +3,13 @@
 namespace LFDPP\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\Date;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * Price
  *
- * @ORM\Table(name="price")
+ * @ORM\Table(name="lilou_price")
  * @ORM\Entity(repositoryClass="LFDPP\AdminBundle\Repository\PriceRepository")
  */
 class Price
@@ -25,10 +27,17 @@ class Price
      * @var \stdClass
      *
      * @ORM\ManyToOne(targetEntity="LFDPP\AdminBundle\Entity\PriceType", cascade={"persist"})
-     * @ORM\Column(name="type_id", type="integer")
+     * @ORM\Column(name="type_id", type="object")
      * @ORM\JoinColumn(nullable=false)
      */
     private $type;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=120)
+     */
+    private $name;
 
     /**
      * @var int
@@ -37,6 +46,18 @@ class Price
      */
     private $value;
 
+    /**
+     * @var Date
+     * 
+     * @ORM\Column(name="creation_date", type="date")
+     */
+    private $creation_date;
+
+
+    public function __construct()
+    {
+        $this->creation_date = new \DateTime();    
+    }
 
     /**
      * Get id
@@ -94,5 +115,29 @@ class Price
     public function getValue()
     {
         return $this->value;
+    }
+
+    /**
+     * Set creationDate
+     *
+     * @param \DateTime $creationDate
+     *
+     * @return Price
+     */
+    public function setCreationDate($creationDate)
+    {
+        $this->creation_date = $creationDate;
+
+        return $this;
+    }
+
+    /**
+     * Get creationDate
+     *
+     * @return \DateTime
+     */
+    public function getCreationDate()
+    {
+        return $this->creation_date;
     }
 }

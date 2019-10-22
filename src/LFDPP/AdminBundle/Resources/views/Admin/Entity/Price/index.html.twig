@@ -1,0 +1,24 @@
+{# src/LFDPP/AdminBundle/Resources/views/Admin/Entity/Price/index.html.twig #}
+{% extends "@Admin/Default/index.html.twig" %}
+
+{% block content %}
+
+<ul>
+  {% for price in prices %}
+    <li>
+    <div>
+    {{ price.name }} ce paye {{ price.value }} - 
+    <a href="{{ path('admin_form_price_edit', {'id': price.id}) }}">Edit this price</a>
+    <a href="{{ path('admin_form_price_delete', {'id': price.id}) }}">Delete this price</a>
+    </div>
+    </li>
+  {% else %}
+    <li>Pas de Price trouvé.</li>
+  {% endfor %}
+</ul>
+
+<div>
+  <a href="{{ path('admin_form_price_add') }}">Add new Price</a>
+</div>
+
+  {% endblock %}
