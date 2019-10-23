@@ -17,7 +17,7 @@ class LangController extends Controller
     /**
      * Lists all lang entities.
      *
-     * @Route("/", name="lang_index")
+     * @Route("/", name="admin_form_lang_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -34,7 +34,7 @@ class LangController extends Controller
     /**
      * Creates a new lang entity.
      *
-     * @Route("/add", name="lang_new")
+     * @Route("/add", name="admin_form_lang_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -60,7 +60,7 @@ class LangController extends Controller
     /**
      * Finds and displays a lang entity.
      *
-     * @Route("/{id}", name="lang_show")
+     * @Route("/{id}", name="admin_form_lang_show")
      * @Method("GET")
      */
     public function showAction(Lang $lang)
@@ -76,7 +76,7 @@ class LangController extends Controller
     /**
      * Displays a form to edit an existing lang entity.
      *
-     * @Route("/{id}/edit", name="lang_edit")
+     * @Route("/{id}/edit", name="admin_form_lang_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Lang $lang)
@@ -101,7 +101,7 @@ class LangController extends Controller
     /**
      * Deletes a lang entity.
      *
-     * @Route("/{id}/delete/", name="lang_delete")
+     * @Route("/{id}/delete/", name="admin_form_lang_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Lang $lang)

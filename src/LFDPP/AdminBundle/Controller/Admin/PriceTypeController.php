@@ -43,7 +43,7 @@ class PriceTypeController extends Controller
 
             $request->getSession()->getFlashBag()->add('notice', 'Price Type bien enregistrée.');
 
-            return $this->redirectToRoute('admin_form_price_type_ind', array('id' => $priceType->getId()));
+            return $this->redirectToRoute('admin_form_price_type_show', array('id' => $priceType->getId()));
         }
         }
 
@@ -53,7 +53,7 @@ class PriceTypeController extends Controller
     }
 
     /**
-     * @Route("/view/{id}", name="admin_form_price_type_ind", requirements={"id" = "\d+"})
+     * @Route("/{id}", name="admin_form_price_type_show", requirements={"id" = "\d+"})
      */
     public function viewAction($id)
     {
@@ -66,7 +66,7 @@ class PriceTypeController extends Controller
 
     
     /**
-     * @Route("/edit/{id}", name="admin_form_price_type_edit", requirements={"id" = "\d+"})
+     * @Route("/{id}/edit/", name="admin_form_price_type_edit", requirements={"id" = "\d+"})
      */
     public function editAction($id, Request $request)
     {
@@ -89,7 +89,7 @@ class PriceTypeController extends Controller
 
             $request->getSession()->getFlashBag()->add('notice', 'Price Type bien mis à jour.');
 
-            return $this->redirectToRoute('admin_form_price_type_ind', array('id' => $priceType->getId()));
+            return $this->redirectToRoute('admin_form_price_type_show', array('id' => $priceType->getId()));
         }
         }
 
@@ -99,7 +99,7 @@ class PriceTypeController extends Controller
     } 
 
     /**
-     * @Route("/delete/{id}", name="admin_form_price_type_delete", requirements={"id" = "\d+"})
+     * @Route("/{id}/delete/", name="admin_form_price_type_delete", requirements={"id" = "\d+"})
      */
     public function deleteAction($id, Request $request)
     {
