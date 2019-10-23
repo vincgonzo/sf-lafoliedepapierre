@@ -15,26 +15,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 class MessagesController extends Controller
 {
     /**
-     * Lists all message entities.
-     *
-     * @Route("/", name="admin_form_messages")
-     * @Method("GET")
-     */
-    public function indexAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $messages = $em->getRepository('AdminBundle:Messages')->findAll();
-
-        return $this->render('AdminBundle:Admin\Entity\Messages:index.html.twig', array(
-            'messages' => $messages,
-        ));
-    }
-
-    /**
      * Creates a new message entity.
      *
-     * @Route("/add", name="admin_form_messages_new")
+     * @Route("/add", name="admin_form_messages_add")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -132,5 +115,22 @@ class MessagesController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+    
+    /**
+     * Lists all message entities.
+     *
+     * @Route("/", name="admin_form_messages")
+     * @Method("GET")
+     */
+    public function indexAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $messages = $em->getRepository('AdminBundle:Messages')->findAll();
+
+        return $this->render('AdminBundle:Admin\Entity\Messages:index.html.twig', array(
+            'messages' => $messages,
+        ));
     }
 }

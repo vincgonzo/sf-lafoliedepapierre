@@ -49,6 +49,10 @@ class Users
      */
     private $creationDate;
 
+    public function __construct()
+    {
+        $this->creationDate = new \DateTime();
+    }
 
     /**
      * Get id

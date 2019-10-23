@@ -15,26 +15,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 class LangController extends Controller
 {
     /**
-     * Lists all lang entities.
-     *
-     * @Route("/", name="admin_form_lang")
-     * @Method("GET")
-     */
-    public function indexAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $langs = $em->getRepository('AdminBundle:Lang')->findAll();
-
-        return $this->render('AdminBundle:Admin\Entity\Lang:index.html.twig', array(
-            'langs' => $langs,
-        ));
-    }
-
-    /**
      * Creates a new lang entity.
      *
-     * @Route("/add", name="admin_form_lang_new")
+     * @Route("/add", name="admin_form_lang_add")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -132,5 +115,22 @@ class LangController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+    
+    /**
+     * Lists all lang entities.
+     *
+     * @Route("/", name="admin_form_lang")
+     * @Method("GET")
+     */
+    public function indexAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $langs = $em->getRepository('AdminBundle:Lang')->findAll();
+
+        return $this->render('AdminBundle:Admin\Entity\Lang:index.html.twig', array(
+            'langs' => $langs,
+        ));
     }
 }
