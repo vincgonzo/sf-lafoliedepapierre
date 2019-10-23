@@ -22,10 +22,10 @@
 
     <ul>
         <li>
-            <a href="{{ path('lang_index') }}">Back to the list</a>
+            <a href="{{ path('admin_form_lang') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('lang_edit', { 'id': lang.id }) }}">Edit</a>
+            <a href="{{ path('admin_form_lang_edit', { 'id': lang.id }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

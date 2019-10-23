@@ -19,7 +19,7 @@
         <tbody>
         {% for message in messages %}
             <tr>
-                <td><a href="{{ path('admin_messages_show', { 'id': message.id }) }}">{{ message.id }}</a></td>
+                <td><a href="{{ path('admin_form_messages_show', { 'id': message.id }) }}">{{ message.id }}</a></td>
                 <td>{{ message.title }}</td>
                 <td>{{ message.userId }}</td>
                 <td>{{ message.objectId }}</td>
@@ -29,10 +29,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('admin_messages_show', { 'id': message.id }) }}">show</a>
+                            <a href="{{ path('admin_form_messages_show', { 'id': message.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('admin_messages_edit', { 'id': message.id }) }}">edit</a>
+                            <a href="{{ path('admin_form_messages_edit', { 'id': message.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -43,7 +43,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('admin_messages_new') }}">Create a new message</a>
+            <a href="{{ path('admin_form_messages_new') }}">Create a new message</a>
         </li>
     </ul>
 {% endblock %}

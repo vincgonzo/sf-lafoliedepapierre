@@ -15,16 +15,16 @@
         <tbody>
         {% for lang in langs %}
             <tr>
-                <td><a href="{{ path('lang_show', { 'id': lang.id }) }}">{{ lang.id }}</a></td>
+                <td><a href="{{ path('admin_form_lang_show', { 'id': lang.id }) }}">{{ lang.id }}</a></td>
                 <td>{{ lang.name }}</td>
                 <td>{{ lang.languageCode }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('lang_show', { 'id': lang.id }) }}">show</a>
+                            <a href="{{ path('admin_form_lang_show', { 'id': lang.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('lang_edit', { 'id': lang.id }) }}">edit</a>
+                            <a href="{{ path('admin_form_lang_edit', { 'id': lang.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -35,7 +35,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('lang_new') }}">Create a new lang</a>
+            <a href="{{ path('admin_form_lang_new') }}">Create a new lang</a>
         </li>
     </ul>
 {% endblock %}

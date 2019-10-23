@@ -17,7 +17,7 @@ class MessagesController extends Controller
     /**
      * Lists all message entities.
      *
-     * @Route("/", name="admin_messages_index")
+     * @Route("/", name="admin_form_messages")
      * @Method("GET")
      */
     public function indexAction()
@@ -34,7 +34,7 @@ class MessagesController extends Controller
     /**
      * Creates a new message entity.
      *
-     * @Route("/add", name="admin_messages_new")
+     * @Route("/add", name="admin_form_messages_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -48,7 +48,7 @@ class MessagesController extends Controller
             $em->persist($message);
             $em->flush();
 
-            return $this->redirectToRoute('admin_messages_show', array('id' => $message->getId()));
+            return $this->redirectToRoute('admin_form_messages_show', array('id' => $message->getId()));
         }
 
         return $this->render('AdminBundle:Admin\Entity\Messages:new.html.twig', array(
@@ -60,7 +60,7 @@ class MessagesController extends Controller
     /**
      * Finds and displays a message entity.
      *
-     * @Route("/{id}", name="admin_messages_show")
+     * @Route("/{id}", name="admin_form_messages_show")
      * @Method("GET")
      */
     public function showAction(Messages $message)
@@ -76,7 +76,7 @@ class MessagesController extends Controller
     /**
      * Displays a form to edit an existing message entity.
      *
-     * @Route("/{id}/edit", name="admin_messages_edit")
+     * @Route("/{id}/edit", name="admin_form_messages_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Messages $message)
@@ -88,7 +88,7 @@ class MessagesController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('admin_messages_edit', array('id' => $message->getId()));
+            return $this->redirectToRoute('admin_form_messages_edit', array('id' => $message->getId()));
         }
 
         return $this->render('AdminBundle:Admin\Entity\Messages:edit.html.twig', array(
@@ -101,7 +101,7 @@ class MessagesController extends Controller
     /**
      * Deletes a message entity.
      *
-     * @Route("/{id}/delete/", name="admin_messages_delete")
+     * @Route("/{id}/delete/", name="admin_form_messages_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Messages $message)
@@ -115,7 +115,7 @@ class MessagesController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('admin_messages_index');
+        return $this->redirectToRoute('admin_form_messages');
     }
 
     /**
@@ -128,7 +128,7 @@ class MessagesController extends Controller
     private function createDeleteForm(Messages $message)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('admin_messages_delete', array('id' => $message->getId())))
+            ->setAction($this->generateUrl('admin_form_messages_delete', array('id' => $message->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

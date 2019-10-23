@@ -37,7 +37,7 @@ class MessageTypeController extends Controller
 
             $request->getSession()->getFlashBag()->add('notice', 'Message type enregistré.');
 
-            return $this->redirectToRoute('admin_form_message_type_ind', array('id' => $messageType->getId()));
+            return $this->redirectToRoute('admin_form_message_type_show', array('id' => $messageType->getId()));
         }
 
         return $this->render('AdminBundle:Admin\Forms\MessageType:form.html.twig', array(
@@ -46,7 +46,7 @@ class MessageTypeController extends Controller
     }
 
     /**
-     * @Route("/view/{id}", name="admin_form_message_type_ind", requirements={"id" = "\d+"})
+     * @Route("/{id}", name="admin_form_message_type_show", requirements={"id" = "\d+"})
      */
     public function viewAction($id)
     {
@@ -59,7 +59,7 @@ class MessageTypeController extends Controller
 
     
     /**
-     * @Route("/edit/{id}", name="admin_form_message_type_edit", requirements={"id" = "\d+"})
+     * @Route("/{id}/edit/", name="admin_form_message_type_edit", requirements={"id" = "\d+"})
      */
     public function editAction($id, Request $request)
     {
@@ -75,7 +75,7 @@ class MessageTypeController extends Controller
 
             $request->getSession()->getFlashBag()->add('notice', 'Message type mis à jour.');
 
-            return $this->redirectToRoute('admin_form_message_type_ind', array('id' => $messageType->getId()));
+            return $this->redirectToRoute('admin_form_message_type_show', array('id' => $messageType->getId()));
         }
 
         return $this->render('AdminBundle:Admin\Forms\MessageType:form.html.twig', array(
@@ -84,7 +84,7 @@ class MessageTypeController extends Controller
     } 
 
     /**
-     * @Route("/delete/{id}", name="admin_form_message_type_delete", requirements={"id" = "\d+"})
+     * @Route("/{id}/delete/", name="admin_form_message_type_delete", requirements={"id" = "\d+"})
      */
     public function deleteAction($id, Request $request)
     {
