@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Message</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ message.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ message.title }}</td>
+            </tr>
+            <tr>
+                <th>Userid</th>
+                <td>{{ message.userId }}</td>
+            </tr>
+            <tr>
+                <th>Objectid</th>
+                <td>{{ message.objectId }}</td>
+            </tr>
+            <tr>
+                <th>Textmessage</th>
+                <td>{{ message.textMessage }}</td>
+            </tr>
+            <tr>
+                <th>Creationdate</th>
+                <td>{% if message.creationDate %}{{ message.creationDate|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Langid</th>
+                <td>{{ message.langId }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_messages_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_messages_edit', { 'id': message.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

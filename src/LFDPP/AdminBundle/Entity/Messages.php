@@ -68,6 +68,12 @@ class Messages
      */
     private $langId;
 
+    
+    public function __construct()
+    {
+        $this->creationDate = new \DateTime();    
+    }
+
 
     /**
      * Get id

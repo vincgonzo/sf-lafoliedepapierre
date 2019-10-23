@@ -2,7 +2,9 @@
 
 namespace LFDPP\AdminBundle\Controller\Admin;
 
+use LFDPP\AdminBundle\Service\ValidatorEntity;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface;
+use Doctrine\ORM\EntityManager;
 use LFDPP\AdminBundle\Entity\MessageType;
 use LFDPP\AdminBundle\Form\MessageTypeType;
 use LFDPP\AdminBundle\Repository\messageTypeRepository;
@@ -25,21 +27,17 @@ class MessageTypeController extends Controller
     public function addAction(Request $request)
     {
         $messageType = new messageType();
-
         $form = $this->get('form.factory')->create(MessageTypeType::class, $messageType);
 
-        if ($request->isMethod('POST')) {
-        $form->handleRequest($request);
+        if( $this->container->get('admin.validator_form')->formValidate($request, $form) )
+        {
+            $_em = $this->getDoctrine()->getManager();
+            $_em->persist($messageType);
+            $_em->flush();
 
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($messageType);
-            $em->flush();
-
-            $request->getSession()->getFlashBag()->add('notice', 'Price Type bien enregistrée.');
+            $request->getSession()->getFlashBag()->add('notice', 'Message type enregistré.');
 
             return $this->redirectToRoute('admin_form_message_type_ind', array('id' => $messageType->getId()));
-        }
         }
 
         return $this->render('AdminBundle:Admin\Forms\MessageType:form.html.twig', array(
@@ -68,19 +66,16 @@ class MessageTypeController extends Controller
         $messageType = $this->getDoctrine()->getRepository("AdminBundle:MessageType")->find($id);
 
         $form = $this->createForm(MessageTypeType::class, $messageType);
+        
+        if( $this->container->get('admin.validator_form')->formValidate($request, $form) )
+        {
+            $_em = $this->getDoctrine()->getManager();
+            $_em->persist($messageType);
+            $_em->flush();
 
-        if ($request->isMethod('POST')) {
-        $form->handleRequest($request);
-
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($messageType);
-            $em->flush();
-
-            $request->getSession()->getFlashBag()->add('notice', 'Price Type bien mis à jour.');
+            $request->getSession()->getFlashBag()->add('notice', 'Message type mis à jour.');
 
             return $this->redirectToRoute('admin_form_message_type_ind', array('id' => $messageType->getId()));
-        }
         }
 
         return $this->render('AdminBundle:Admin\Forms\MessageType:form.html.twig', array(
