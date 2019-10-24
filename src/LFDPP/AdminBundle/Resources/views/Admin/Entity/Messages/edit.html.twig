@@ -5,17 +5,17 @@
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+        <input type="submit" class="btn btn-success" value="Edit" />
     {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('admin_form_messages') }}">Back to the list</a>
-        </li>
-        <li>
+    <div class="col-lg-12">
+        <div class="col-lg-6 col-sm-12">
+            <a href="{{ path('admin_form_messages') }}" class="btn btn-primary">Back to the list</a>
+        </div>
+        <div class="col-lg-6 col-sm-12">
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" class="btn btn-danger" value="Delete">
             {{ form_end(delete_form) }}
-        </li>
-    </ul>
+        </div>
+    </div>
 {% endblock %}

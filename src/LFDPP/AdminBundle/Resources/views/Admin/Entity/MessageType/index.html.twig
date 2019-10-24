@@ -2,23 +2,31 @@
 {% extends "@Admin/Default/index.html.twig" %}
 
 {% block content %}
-
-<ul>
   {% for message_type in messages_type %}
-    <li>
-    <div>
-    {{ message_type.name }} - 
-    <a href="{{ path('admin_form_message_type_edit', {'id': message_type.id}) }}">Edit this message Type</a>
-    <a href="{{ path('admin_form_message_type_delete', {'id': message_type.id}) }}">Delete this message Type</a>
+    <div class="col-lg-12">
+      <div class="col-lg-2 col-sm-6">
+        <h3>{{ message_type.name }}</h3>
+      </div>
+      <div class="col-lg-4 col-sm-12">
+        <a href="{{ path('admin_form_message_type_edit', {'id': message_type.id}) }}" class="btn btn-info">Edit this message Type</a>
+      </div>
+      <div class="col-lg-4 col-sm-12">
+        <a href="{{ path('admin_form_message_type_delete', {'id': message_type.id}) }}" class="btn btn-danger">Delete this message Type</a>
+      </div>
     </div>
-    </li>
   {% else %}
-    <li>Pas de Messsage Type trouvé.</li>
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        <span class="sr-only">Close</span>
+      </button>
+      <strong>Pas de Messsage Type trouvé.</strong>
+    </div>
+
   {% endfor %}
-</ul>
 
 <div>
-  <a href="{{ path('admin_form_message_type_add') }}">Add new Message Type</a>
+  <a href="{{ path('admin_form_message_type_add') }}" class="btn btn-success">Add new Message Type</a>
 </div>
 
   {% endblock %}
