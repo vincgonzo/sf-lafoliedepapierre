@@ -3,6 +3,7 @@
 namespace LFDPP\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Users
@@ -25,6 +26,7 @@ class Users
      * @var string
      *
      * @ORM\Column(name="first_name", type="string", length=80)
+     * @Assert\NotBlank
      */
     private $firstName;
 
@@ -32,6 +34,7 @@ class Users
      * @var string
      *
      * @ORM\Column(name="last_name", type="string", length=80)
+     * @Assert\NotBlank
      */
     private $lastName;
 
@@ -39,6 +42,7 @@ class Users
      * @var string
      *
      * @ORM\Column(name="mail", type="string", length=100, unique=true)
+     * @Assert\Email
      */
     private $mail;
 
