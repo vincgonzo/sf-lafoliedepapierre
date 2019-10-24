@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends '@Admin/Admin/index.html.twig' %}
 
 {% block body %}
     <h1>Langs list</h1>
@@ -21,10 +21,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('admin_form_lang_show', { 'id': lang.id }) }}">show</a>
+                            <a href="{{ path('admin_form_lang_show', { 'id': lang.id }) }}" class="btn btn-secondary">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('admin_form_lang_edit', { 'id': lang.id }) }}">edit</a>
+                            <a href="{{ path('admin_form_lang_edit', { 'id': lang.id }) }}" class="btn btn-info">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -35,7 +35,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('admin_form_lang_add') }}">Create a new lang</a>
+            <a href="{{ path('admin_form_lang_add') }}" class="btn btn-success">Create a new lang</a>
         </li>
     </ul>
 {% endblock %}

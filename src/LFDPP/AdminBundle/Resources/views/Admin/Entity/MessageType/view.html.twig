@@ -1,5 +1,5 @@
 {# src/LFDPP/AdminBundle/Resources/views/Admin/Entity/PriceType/view.html.twig #}
-{% extends "@Admin/Default/index.html.twig" %}
+{% extends '@Admin/Admin/index.html.twig' %}
 
 {% block content %}
 
@@ -11,6 +11,6 @@
   {% endif %}
 </h1>
 
-<a href="{{ path('admin_form_message_type') }}">Revenir à l'écran des Message Type</a>
+<a href="{{ path('admin_form_message_type') }}" class="btn btn-primary">Revenir à l'écran des Message Type</a>
 
 {% endblock %}

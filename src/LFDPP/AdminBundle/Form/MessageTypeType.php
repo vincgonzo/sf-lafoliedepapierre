@@ -16,7 +16,6 @@ class MessageTypeType extends AbstractType
     {
         $builder
         ->add('name')
-        ->add('save', SubmitType::class)
         ;
     }/**
      * {@inheritdoc}

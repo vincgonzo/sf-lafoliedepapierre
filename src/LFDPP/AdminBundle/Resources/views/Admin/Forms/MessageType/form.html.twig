@@ -1,4 +1,4 @@
-{% extends "::base.html.twig" %}
+{% extends '@Admin/Admin/index.html.twig' %}
 
 {% block title %}AdminBundle:Admin\Forms\MessageType:add{% endblock %}
 
@@ -8,8 +8,11 @@
 <h3>Formulaire de création Message Type</h3>
 
 <div class="well">
-  {{ form(form) }}
+  {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" class="btn btn-success" value="Edit" />
+    {{ form_end(form) }}
 </div>
 
-<a href="{{ path('admin_form_message_type') }}">Revenir à l'écran des Messages Type</a>
+<a href="{{ path('admin_form_message_type') }}" class="btn btn-primary">Revenir à l'écran des Messages Type</a>
 {% endblock %}

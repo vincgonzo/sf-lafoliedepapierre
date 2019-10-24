@@ -1,5 +1,5 @@
 {# src/LFDPP/AdminBundle/Resources/views/Admin/Entity/PriceType/index.html.twig #}
-{% extends "@Admin/Default/index.html.twig" %}
+{% extends '@Admin/Admin/index.html.twig' %}
 
 {% block content %}
 
@@ -8,8 +8,8 @@
     <li>
     <div>
     {{ price_type.type }} correspond a {{ price_type.days }} jours - 
-    <a href="{{ path('admin_form_price_type_edit', {'id': price_type.id}) }}">Edit this type</a>
-    <a href="{{ path('admin_form_price_type_delete', {'id': price_type.id}) }}">Delete this type</a>
+    <a href="{{ path('admin_form_price_type_edit', {'id': price_type.id}) }}" class="btn btn-info">Edit this type</a>
+    <a href="{{ path('admin_form_price_type_delete', {'id': price_type.id}) }}" class="btn btn-danger">Delete this type</a>
     </div>
     </li>
   {% else %}
@@ -18,7 +18,7 @@
 </ul>
 
 <div>
-  <a href="{{ path('admin_form_price_type_add') }}">Add new Price Type</a>
+  <a href="{{ path('admin_form_price_type_add') }}" class="btn btn-success">Add new Price Type</a>
 </div>
 
   {% endblock %}

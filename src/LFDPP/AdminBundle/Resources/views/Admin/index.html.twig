@@ -1,0 +1,51 @@
+{# src/LFDPP/AdminBundle/Resources/views/Front/index.html.twig #}
+{% extends '::base.html.twig' %}
+
+
+{% block title %}
+  Tableau de bord - Lafoliedepapierre
+{% endblock %}
+
+
+{% block navbar %}
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" id="navId">
+    <li class="nav-item">
+      <a href="{{path('admin_dashboard')}}" class="nav-link active">Dashboard</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="{{path('admin_form_message_type')}}">message type</a>
+        <a class="dropdown-item" href="{{path('admin_form_messages')}}">messages</a>
+        <a class="dropdown-item" href="{{path('admin_form_lang')}}">Langues</a>
+        <a class="dropdown-item" href="{{path('admin_form_price_type')}}">price type</a>
+        <a class="dropdown-item" href="{{path('admin_form_price')}}">price</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#tab4Id">Action</a>
+      </div>
+    </li>
+  </ul>
+  
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div class="tab-pane fade show active" id="tab1Id" role="tabpanel"></div>
+    <div class="tab-pane fade" id="tab2Id" role="tabpanel"></div>
+    <div class="tab-pane fade" id="tab3Id" role="tabpanel"></div>
+    <div class="tab-pane fade" id="tab4Id" role="tabpanel"></div>
+    <div class="tab-pane fade" id="tab5Id" role="tabpanel"></div>
+  </div>
+  
+  <script>
+    $('#navId a').click(e => {
+      e.preventDefault();
+      $(this).tab('show');
+    });
+  </script>
+{% endblock %}
+
+
+{% block header_site %}
+  <h1>This is Back Homepage of website </h1>
+  <p>Lot of text in it</p>
+{% endblock %}
